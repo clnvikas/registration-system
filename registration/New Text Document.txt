@@ -1,0 +1,15 @@
+$checkBox = implode(',', $_POST['days']);
+
+
+
+if(isset($_POST['submit']))
+{
+    for($i=0; $i<sizeof($checkBox); $i++)
+        {
+            $query="INSERT INTO users (days) VALUES ('" . $checkBox[$i] . "')";     
+
+            mysql_query($query) or die (mysql_error() );
+        }
+    echo "Complete";
+
+}
